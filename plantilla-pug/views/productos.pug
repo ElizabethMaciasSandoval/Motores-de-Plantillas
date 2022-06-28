@@ -1,0 +1,27 @@
+doctype
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Motor PUG
+  body
+    main
+      h3 Lista de Productos
+      if products.length 
+        table
+          thead 
+            tr 
+            th(scope:'col') Nombre
+            th(scope:'col') Precio
+            th(scope:'col') Imagen
+
+          tbody 
+            each product in products    
+              tr(scope:'row')
+              td  #{product.title}                       
+              td  #{product.price }  
+              td 
+                img(src=product.thumbnail, alt=product.title, style={width:'3rem'})
+      else 
+        p(style={color: 'red'}) No hay productos
+        a(href="/crear") Crear Productos
+</html>

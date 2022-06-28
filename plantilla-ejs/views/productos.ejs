@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor EJS</title>
+</head>
+<body>
+  <main>
+    <h3> Lista de Productos:</h3>
+      <% if(products.length) { %> 
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Imagen</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% products.forEach(producto => { %> 
+            <tr scope="row">
+              <td><%= producto.title %> </td>
+              <td><%= producto.price %></td>
+              <td>
+                <img src="<%= producto.thumbnail %> " alt="<%= producto.title %> " style="width:6rem">
+              </td>
+            </tr>  
+          <% }) %> 
+          </tbody>
+        </table>
+        <% } else { %> 
+          <p style="color: red;">No hay Productos</p>
+        <% } %> 
+    <a href="/crear" >Crear Productos</a>
+  </main>
+</body>
+</html>
